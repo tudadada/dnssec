@@ -1,0 +1,39 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "dnssec",
+  "description": "Domain Name System Security Extensions (DNSSEC) Validation & Cryptographic Auditing MCP Server",
+  "tools": [
+    {
+      "name": "verify_dnssec_chain",
+      "description": "Performs recursive cryptographic chain of trust validation (Root -> TLD -> Domain) for DNSSEC.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "The fully-qualified domain name to validate (e.g. example.com)"
+          }
+        },
+        "required": [
+          "domain"
+        ]
+      }
+    },
+    {
+      "name": "audit_dnssec_records",
+      "description": "Inspects and audits DNSKEY, DS, and RRSIG signature expiration and cipher strength.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "The target domain to inspect cryptographic records"
+          }
+        },
+        "required": [
+          "domain"
+        ]
+      }
+    }
+  ]
+}
